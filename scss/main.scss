@@ -1,0 +1,227 @@
+$primary-color: #FFEFE7;
+$secondary-color: #FFDAC6;
+$tertiary-color: #BABD8D;
+$primary-text-color: #7C6A0A;
+$quaternary-color: #FA9500;
+$font-stack: "IBM Plex Sans", sans-serif;
+$paragraph-size: 1.5em;
+
+@mixin flexCenter($direction, $content, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $content;
+  align-items: $align;
+}
+@mixin buttonStyle() {
+  button {
+    background: none;
+    border-style: none;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: $primary-color;
+  font-family: $font-stack;
+}
+
+.navbar {
+  width: auto;
+  @include flexCenter(row, space-between ,center );
+  color: $primary-text-color;
+  padding: 20px ;
+  p{
+    font-size: $paragraph-size;
+    padding-left: 30px;
+  }
+  .icons {
+    display: flex;
+    gap: 15px;
+    @include buttonStyle;
+  }
+}
+
+article {
+  width: auto;
+  color: $primary-text-color;
+  padding: 35px 50px;
+  @include flexCenter(row, space-between ,center );
+  .impact-section {
+    @include flexCenter(column, normal, start );
+    gap: 25px;
+    padding-top: 50px;
+  }
+    h1 {
+      font-size: 3em;
+    }
+    img{
+      width: 25vw;
+      border-radius: 19px;
+    }
+    p{
+      width: 90%;
+      font-size: $paragraph-size  ;
+    }
+    @include buttonStyle;
+    button {
+      width: 12vw;
+      padding: 20px 5px;
+      background-color: $quaternary-color;
+      border-radius: 35px;
+      color: white;
+      font-size: 1em;
+    }
+}
+.product-section {
+  width: 100%;
+  height: auto;
+  padding: 60px;
+
+  h2{
+    color: $primary-text-color;
+    font-size: 2em;
+  }
+  .healthcare {
+    h2 {
+      font-weight: 300;
+    }
+    .card-section {
+      @include flexCenter(row, space-between ,center );
+      flex-wrap: wrap;
+      gap: 50px;
+      padding: 30px 0px;
+
+      .product-card {
+        width: 26vw;
+        height: auto;
+        background-color: $secondary-color;
+        color: $primary-text-color;
+        padding: 40px 20px;
+        border-radius: 8px;
+        position: relative;
+
+        h3,
+        p{
+          width: 80%;
+          margin: 0 auto;
+        }
+      }
+      svg {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+      }
+      .product-image {
+        @include flexCenter(row, center ,center );
+        width: 100%;
+        height: 100%;
+        margin: 10px 0px;
+      }
+      img{ 
+        object-fit: cover;
+        width: 80%;
+        border-radius: 6px;
+      }
+    }
+  }
+  .forniture {
+    @extend .healthcare;
+    .card-section {
+      .product-card {
+        background-color: $tertiary-color;
+        color: white;
+      }
+    }
+  }
+}
+.info-section {
+
+  .about-us {
+    .titleSection {
+      padding: 60px;
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: $primary-text-color;
+    }
+    .mission-section {
+      @include flexCenter(row, space-evenly , center );
+      margin: 60px;
+      .earth {
+        @include flexCenter(row, center , center );
+        width: 40vw ;
+        gap: 40px;
+        color: #E86424;
+        font-weight: 500;
+        
+        img{
+          object-fit: cover;
+        }
+        p{
+          text-align: center;
+          font-size: $paragraph-size;
+        }
+      }
+    }
+    .innovation {
+      @extend .earth;
+    } 
+  }
+  .gallery {
+    h2 {
+      padding: 60px;
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: $primary-text-color;
+    }
+    .gallery-img{
+      @include flexCenter(row,space-evenly ,center );
+      img{
+        width: 25vw;
+        height: 25vw;
+        object-fit: cover;
+        border-radius: 16px;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  .location {
+    color: #E86424;
+    h2 {
+      padding: 60px;
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: $primary-text-color;
+    }
+    .map {
+      width: 90%;
+      margin: 0 auto;
+      img {
+        width: 90vw;
+        height: auto;
+      }
+    }
+
+    .location-text {
+      width: 90%;
+      margin: 0 auto;
+      @include flexCenter(column, start , start )
+    }
+  }
+}
+.footer-section {
+  background-color: $quaternary-color;
+  width: 100%;
+  height: auto;
+  padding: 40px;
+  color: white;
+  .social-media {
+    @include flexCenter(row,center , center);
+    gap: 15px;
+    padding: 0 0 40px 0;
+  }
+}
